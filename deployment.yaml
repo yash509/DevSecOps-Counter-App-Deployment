@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: counter-a-deployment
+spec:
+  replicas: 6  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: counter-a
+  template:
+    metadata:
+      labels:
+        app: counter-a
+    spec:
+      containers:
+      - name: counter-a
+        image: yash5090/counter-a:latest
+        ports:
+        - containerPort: 3000
